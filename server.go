@@ -6,6 +6,13 @@ import (
 	"time"
 )
 
+const (
+	DefaultReadWait  = time.Minute * 3
+	DefaultWriteWait = time.Second * 10
+	DefaultLoginWait = time.Second * 10
+	DefaultHeartbeat = time.Second * 55
+)
+
 // Server 接口
 type Server interface {
 	SetAcceptor(Acceptor)               // 用于设置一个Acceptor
@@ -48,6 +55,16 @@ type ChannelMap interface {
 	All() []Channel
 }
 
+// Channel 客户端接口
+type Channel interface {
+	Conn
+	Agent
+	Close() error // 重写net.Conn中的Close方法
+	Readloop(lst MessageListener) error
+	SetWriteWait(time.Duration)
+	SetReadWait(time.Duration)
+}
+
 // Frame 数据包
 type Frame interface {
 	SetOpCode(OpCode)
@@ -64,6 +81,7 @@ type Conn interface {
 	Flush() error
 }
 
+// OpCode 帧类型
 type OpCode int
 
 const (
@@ -75,7 +93,7 @@ const (
 	OpPong         OpCode = 0xa
 )
 
-// Client 接口
+// Client 客户端接口
 type Client interface {
 	ID() string
 	Name() string

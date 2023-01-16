@@ -3,8 +3,10 @@ package websocket
 import (
 	"EIM"
 	"context"
+	"errors"
 	"fmt"
 	"github.com/gobwas/ws"
+	"github.com/segmentio/ksuid"
 	"net/http"
 	"sync"
 	"time"
@@ -45,12 +47,12 @@ func NewServer(listen string, service naming.ServiceRegistration) EIM.Server {
 // defaultAcceptor 实现了Acceptor接口
 type defaultAcceptor struct{}
 
+// Accept 回调, 交给上层处理认证等逻辑
 func (d *defaultAcceptor) Accept(conn EIM.Conn, loginwait time.Duration) (string, error) {
-	//TODO implement me
-	panic("implement me")
+	return ksuid.New().String(), nil
 }
 
-// Start websocket的Server的主要逻辑部分
+// Start websocket的Server的主要逻辑部分, 开启服务器
 func (s *Server) Start() error {
 	mux := http.NewServeMux()
 	log := logger.WithFields(logger.Fields{
@@ -119,36 +121,67 @@ func (s *Server) Start() error {
 	return http.ListenAndServe(s.listen, mux)
 }
 
-func (s *Server) Push(s2 string, bytes []byte) error {
-	//TODO implement me
-	panic("implement me")
+// Push 推送一个消息到channel
+func (s *Server) Push(id string, data []byte) error {
+	ch, ok := s.ChannelMap.Get(id)
+	if !ok {
+		return errors.New("channel not found")
+	}
+	return ch.Push(data)
 }
 
+// Shutdown 关闭服务器
 func (s *Server) Shutdown(ctx context.Context) error {
-	//TODO implement me
-	panic("implement me")
+	log := logger.WithFields(logger.Fields{
+		"module": "ws.server",
+		"id":     s.ServiceID(),
+	})
+	s.once.Do(func() {
+		defer func() {
+			log.Infoln("shutdown")
+		}()
+		// 关闭所有channels
+		channels := s.ChannelMap.All()
+		for _, ch := range channels {
+			ch.Close()
+
+			select {
+			case <-ctx.Done():
+				return
+			default:
+				continue
+			}
+		}
+	})
+	return nil
 }
 
+// SetAcceptor 设置接收器Acceptor
 func (s *Server) SetAcceptor(acceptor EIM.Acceptor) {
 	s.Acceptor = acceptor
 }
 
+// SetMessageListener 设置信息监听器MessageListener
 func (s *Server) SetMessageListener(listener EIM.MessageListener) {
 	s.MessageListener = listener
 }
 
+// SetStateListener 设置装填监听器StateListener
 func (s *Server) SetStateListener(listener EIM.StateListener) {
 	s.StateListener = listener
 }
 
-func (s *Server) SetChannelMap(channelMap EIM.ChannelMap) {
-	s.ChannelMap = channelMap
-}
-
+// SetReadWait 设置读超时
 func (s *Server) SetReadWait(readwait time.Duration) {
 	s.options.readwait = readwait
 }
 
+// SetChannelMap 设置连接管理表
+func (s *Server) SetChannelMap(channelMap EIM.ChannelMap) {
+	s.ChannelMap = channelMap
+}
+
+// resp 将body写入w
 func resp(w http.ResponseWriter, code int, body string) {
 	w.WriteHeader(code)
 	if body != "" {

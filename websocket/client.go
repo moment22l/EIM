@@ -13,6 +13,7 @@ import (
 	"time"
 )
 
+// ClientOptions 超时参数
 type ClientOptions struct {
 	Heartbeat time.Duration //登录超时
 	ReadWait  time.Duration //读超时
@@ -83,24 +84,28 @@ func (c *Client) Connect(addr string) error {
 	}
 }
 
+// ID 返回id
 func (c *Client) ID() string {
 	return c.id
 }
 
+// Name 返回name
 func (c *Client) Name() string {
 	return c.name
 }
 
+// SetDialer 设置拨号器
 func (c *Client) SetDialer(dialer EIM.Dialer) {
 	c.Dialer = dialer
 }
 
+// Close 关闭连接
 func (c *Client) Close() {
 	c.once.Do(func() {
 		if c.conn == nil {
 			return
 		}
-		// graceful close connection
+		// 优雅关闭连接
 		_ = wsutil.WriteClientMessage(c.conn, ws.OpClose, nil)
 
 		err := c.conn.Close()
@@ -156,7 +161,7 @@ func (c *Client) Read() (EIM.Frame, error) {
 	if c.conn == nil {
 		return nil, errors.New("connection is nil")
 	}
-	if c.options.Heartbeat > 0 {
+	if c.options.ReadWait > 0 {
 		_ = c.conn.SetReadDeadline(time.Now().Add(c.options.ReadWait))
 	}
 	frame, err := ws.ReadFrame(c.conn)

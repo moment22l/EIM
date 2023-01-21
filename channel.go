@@ -1,6 +1,7 @@
 package EIM
 
 import (
+	"EIM/logger"
 	"errors"
 	"sync"
 	"time"
@@ -88,20 +89,27 @@ func (ch *ChannelImpl) Push(payload []byte) error {
 
 // Close 关闭连接
 func (ch *ChannelImpl) Close() error {
-	//TODO implement me
-	panic("implement me")
+	ch.once.Do(func() {
+		close(ch.writechan)
+		ch.closed.Fire()
+	})
+	return nil
 }
 
 // SetWriteWait 设置写超时
-func (ch *ChannelImpl) SetWriteWait(duration time.Duration) {
-	//TODO implement me
-	panic("implement me")
+func (ch *ChannelImpl) SetWriteWait(writewait time.Duration) {
+	if writewait == 0 {
+		return
+	}
+	ch.SetWriteWait(writewait)
 }
 
 // SetReadWait 设置读超时
-func (ch *ChannelImpl) SetReadWait(duration time.Duration) {
-	//TODO implement me
-	panic("implement me")
+func (ch *ChannelImpl) SetReadWait(readwait time.Duration) {
+	if readwait == 0 {
+		return
+	}
+	ch.SetReadWait(readwait)
 }
 
 // WriteFrame 重写Conn的WriteFrame方法(增加了重置写超时的逻辑)
@@ -139,6 +147,7 @@ func (ch *ChannelImpl) Readloop(lst MessageListener) error {
 		if len(payload) == 0 {
 			continue
 		}
+		// TODO: Optimization point
 		go lst.Receive(ch, payload)
 	}
 }

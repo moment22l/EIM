@@ -2,6 +2,8 @@ package tcp
 
 import (
 	"EIM"
+	"EIM/logger"
+	"EIM/naming"
 	"context"
 	"errors"
 	"fmt"
@@ -28,6 +30,22 @@ type Server struct {
 	EIM.ChannelMap
 	once    sync.Once
 	options ServerOptions
+	quit    *EIM.Event
+}
+
+// NewServer 创建一个新服务端
+func NewServer(listen string, service naming.ServiceRegistration) EIM.Server {
+	return &Server{
+		listen:              listen,
+		ServiceRegistration: service,
+		ChannelMap:          EIM.NewChannels(100),
+		quit:                EIM.NewEvent(),
+		options: ServerOptions{
+			loginwait: EIM.DefaultLoginWait,
+			readwait:  EIM.DefaultReadWait,
+			writewait: EIM.DefaultWriteWait,
+		},
+	}
 }
 
 // SetAcceptor 设置接收器Acceptor

@@ -2,6 +2,7 @@ package tcp
 
 import (
 	"EIM"
+	"EIM/logger"
 	"context"
 	"errors"
 	"fmt"
@@ -30,6 +31,22 @@ type Client struct {
 	options ClientOptions
 }
 
+// NewClient 创建新客户端
+func NewClient(id, name string, opts ClientOptions) EIM.Client {
+	if opts.WriteWait == 0 {
+		opts.WriteWait = EIM.DefaultWriteWait
+	}
+	if opts.ReadWait == 0 {
+		opts.ReadWait = EIM.DefaultReadWait
+	}
+	cli := &Client{
+		id:      id,
+		name:    name,
+		options: opts,
+	}
+	return cli
+}
+
 // ID 返回id
 func (c *Client) ID() string {
 	return c.id
@@ -52,7 +69,7 @@ func (c *Client) Connect(addr string) error {
 	if !atomic.CompareAndSwapInt32(&c.state, 0, 1) {
 		return fmt.Errorf("client has connected")
 	}
-	ctx, cancel := context.WithTimeout(context.TODO(), time.Second*10)
+	_, cancel := context.WithTimeout(context.TODO(), time.Second*10)
 	defer cancel()
 	rawconn, err := c.Dialer.DialAndHandshake(EIM.DialerContext{
 		Id:      c.id,

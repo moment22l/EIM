@@ -2,6 +2,7 @@ package websocket
 
 import (
 	"EIM"
+	"EIM/logger"
 	"errors"
 	"fmt"
 	"github.com/gobwas/ws"
@@ -30,6 +31,7 @@ type Client struct {
 	conn    net.Conn
 	state   int32
 	options ClientOptions
+	dc      *EIM.DialerContext
 }
 
 // NewClient 创建一个新客户端
@@ -40,11 +42,12 @@ func NewClient(id, name string, options ClientOptions) EIM.Client {
 	if options.WriteWait == 0 {
 		options.WriteWait = EIM.DefaultWriteWait
 	}
-	return &Client{
+	cli := &Client{
 		id:      id,
 		name:    name,
 		options: options,
 	}
+	return cli
 }
 
 // Connect 连接到服务端Server
@@ -82,6 +85,7 @@ func (c *Client) Connect(addr string) error {
 			}
 		}()
 	}
+	return nil
 }
 
 // ID 返回id

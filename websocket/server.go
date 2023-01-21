@@ -2,6 +2,8 @@ package websocket
 
 import (
 	"EIM"
+	"EIM/logger"
+	"EIM/naming"
 	"context"
 	"errors"
 	"fmt"

@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Perfect the &quot;tcp&quot; and &quot;websocket&quot; part of communication layer&#10;1. update tcp\server.go&#10;2. update tcp\client.go&#10;3. update websocket\server.go&#10;4. update websocket\client.go">
-      <change afterPath="$PROJECT_DIR$/channels.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/setting.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naming/naming.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naming/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/endian/big_endian_test.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml">
+      <change afterPath="$PROJECT_DIR$/wire/definitions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/pkt/basic_pkt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/pkt/common.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/pkt/packet.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/pkt/read_write.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/mock/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mock/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/mock/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mock/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/endian/helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire/endian/helper.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,40 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -97,7 +73,8 @@
       <workItem from="1673798497380" duration="18000" />
       <workItem from="1673798564040" duration="278000" />
       <workItem from="1673852641362" duration="10048000" />
-      <workItem from="1674290375421" duration="6979000" />
+      <workItem from="1674290375421" duration="8183000" />
+      <workItem from="1675408749006" duration="4918000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -134,7 +111,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674304627582</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finish the communication layer&#10;1. create \channels.go&#10;2. create \event.go&#10;3. update \server.go&#10;4. update \channel.go">
+      <created>1674304976590</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674304976590</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml">
+      <created>1674305582429</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674305582429</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +148,9 @@
     <MESSAGE value="Finish the &quot;tcp&quot; part of communication layer&#10;1. create tcp\server.go&#10;2. create tcp\client.go&#10;3. update tcp\connection.go" />
     <MESSAGE value="Perfect the &quot;websocket&quot; part of communication layer&#10;1. update websocket\server.go&#10;2. update websocket\client.go&#10;3. update websocket\connection.go" />
     <MESSAGE value="Perfect the &quot;tcp&quot; and &quot;websocket&quot; part of communication layer&#10;1. update tcp\server.go&#10;2. update tcp\client.go&#10;3. update websocket\server.go&#10;4. update websocket\client.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perfect the &quot;tcp&quot; and &quot;websocket&quot; part of communication layer&#10;1. update tcp\server.go&#10;2. update tcp\client.go&#10;3. update websocket\server.go&#10;4. update websocket\client.go" />
+    <MESSAGE value="Finish the communication layer&#10;1. create \channels.go&#10;2. create \event.go&#10;3. update \server.go&#10;4. update \channel.go" />
+    <MESSAGE value="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

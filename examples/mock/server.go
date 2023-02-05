@@ -2,6 +2,10 @@ package mock
 
 import (
 	"EIM"
+	"EIM/logger"
+	"EIM/naming"
+	"EIM/tcp"
+	"EIM/websocket"
 	"errors"
 	"time"
 )
@@ -12,7 +16,7 @@ type ServerDemo struct{}
 // Start demo入口方法
 func (s *ServerDemo) Start(id, protocol, addr string) {
 	var srv EIM.Server
-	Service := &naming.DefaultServer{
+	Service := &naming.DefaultService{
 		Id:       id,
 		Protocol: protocol,
 	}

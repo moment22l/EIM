@@ -2,7 +2,9 @@ package mock
 
 import (
 	"EIM"
+	"EIM/logger"
 	"EIM/tcp"
+	"EIM/websocket"
 	"context"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
@@ -23,7 +25,7 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 		cli.SetDialer(&WebsocketDialer{})
 	} else if protocol == "tcp" {
 		cli = tcp.NewClient("test1", "client", tcp.ClientOptions{})
-		cli.SetDialer(&TcpDialer{})
+		cli.SetDialer(&TCPDialer{})
 	}
 
 	// 2. 建立连接

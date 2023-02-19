@@ -1,0 +1,70 @@
+syntax = "proto3";
+package pkt;
+option go_package = "./pkt";
+
+// 状态码
+enum Status {
+  Success = 0;
+
+  // Client error
+  NoDestination = 100;
+  InvalidPacketBody = 101;
+  InvalidCommand = 103;
+  Unauthorized = 105;
+
+  // Server error
+  SystemException = 300;
+  NotImplemented = 301;
+
+  // Specific error
+  SessionNotFound = 404;
+}
+
+// Meta类型
+enum MetaType {
+  int = 0;
+  string = 1;
+  float = 2;
+}
+
+// 序列化类型
+enum ContentType {
+  Protobuf = 0;
+  Json = 1;
+}
+
+// 标识
+enum Flag {
+  Request = 0;
+  Response = 1;
+  Push = 2;
+}
+
+// 键值对
+message Meta {
+  string key = 1;
+  string value = 2;
+  MetaType type = 3;
+}
+
+// 消息头
+message Header {
+  string command = 1;
+  string channelId = 2;
+  uint32 sequence = 3;
+  Flag flag = 4;
+  Status status = 5;
+  string dest =6;
+  repeated Meta meta = 7;
+}
+
+// 内部握手请求
+message InnerHandshakeReq {
+  string ServiceId = 1;
+}
+
+// 内部握手应答
+message InnerHandshakeResponse {
+  uint32 Code = 1;
+  string Error = 2;
+}

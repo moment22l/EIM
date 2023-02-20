@@ -39,14 +39,14 @@ func WithChannelId(channelId string) HeaderOption {
 	}
 }
 
-// WithDest 设置目标
+// WithDest 设置目标(群/用户)
 func WithDest(dest string) HeaderOption {
 	return func(h *Header) {
 		h.Dest = dest
 	}
 }
 
-// New new一个空白的LoginPkt
+// New 根据command和options, new一个空白的LoginPkt
 func New(command string, options ...HeaderOption) *LoginPkt {
 	pkt := &LoginPkt{}
 	pkt.Command = command
@@ -57,8 +57,8 @@ func New(command string, options ...HeaderOption) *LoginPkt {
 	return pkt
 }
 
-// NewForm 从一个Header创建一个LoginPkt
-func NewForm(h Header) *LoginPkt {
+// NewForm 根据一个Header创建一个LoginPkt
+func NewForm(h *Header) *LoginPkt {
 	pkt := &LoginPkt{}
 	pkt.Header = Header{
 		Command:   h.Command,
@@ -88,7 +88,7 @@ func (p *LoginPkt) Decode(r io.Reader) error {
 	return nil
 }
 
-// Encode 封包并写入w
+// Encode 封包并将p写入w
 func (p *LoginPkt) Encode(w io.Writer) error {
 	headerBytes, err := proto.Marshal(&p.Header)
 	if err != nil {

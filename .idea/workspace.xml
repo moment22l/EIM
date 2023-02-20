@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Create the basic layer and update the mock">
-      <change afterPath="$PROJECT_DIR$/wire/pkt/command.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/proto/command.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/proto/protocol.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/seq.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/pkt/common.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/pkt/packet.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire/pkt/packet.go" afterDir="false" />
-    </list>
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Update the basic layer." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +88,7 @@
       <workItem from="1676624671780" duration="709000" />
       <workItem from="1676773686204" duration="3869000" />
       <workItem from="1676778888465" duration="598000" />
-      <workItem from="1676779725777" duration="8085000" />
+      <workItem from="1676779725777" duration="10860000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -154,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675588339267</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update the basic layer.">
+      <created>1676807933935</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676807933935</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +179,8 @@
     <MESSAGE value="Finish the communication layer&#10;1. create \channels.go&#10;2. create \event.go&#10;3. update \server.go&#10;4. update \channel.go" />
     <MESSAGE value="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml" />
     <MESSAGE value="Create the basic layer and update the mock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create the basic layer and update the mock" />
+    <MESSAGE value="Update the basic layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the basic layer." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

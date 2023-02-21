@@ -1,7 +1,6 @@
 package EIM
 
 import (
-	"EIM/naming"
 	"context"
 	"net"
 	"time"
@@ -14,9 +13,28 @@ const (
 	DefaultHeartbeat = time.Second * 55
 )
 
+// Service 基础服务的抽象接口
+type Service interface {
+	ServiceID() string
+	ServiceName() string
+	GetMeta() map[string]string
+}
+
+// ServiceRegistration 服务注册的抽象接口
+type ServiceRegistration interface {
+	Service
+	PublicAddress() string
+	PublicPort() int
+	DialURL() string
+	GetProtocol() string
+	GetNamespace() string
+	GetTags() []string
+	String() string
+}
+
 // Server 接口
 type Server interface {
-	naming.ServiceRegistration          // 服务
+	ServiceRegistration                 // 服务
 	SetAcceptor(Acceptor)               // 用于设置一个Acceptor
 	SetMessageListener(MessageListener) // 用于设置一个MessageListener(上行消息监听器)
 	SetStateListener(StateListener)     // 用于设置一个StateListener(连接状态监听服务)

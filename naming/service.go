@@ -1,23 +1,9 @@
 package naming
 
-import "fmt"
-
-// ServiceRegistration service接口定义
-type ServiceRegistration interface {
-	ServiceID() string
-	ServiceName() string
-	// ip or domain
-	PublicAddress() string
-	PublicPort() int
-	DialURL() string
-	GetProtocol() string
-	GetNamespace() string
-	GetTags() []string
-	GetMeta() map[string]string
-	// SetTags(tags []string)
-	// SetMeta(map[string]string)
-	String() string
-}
+import (
+	"EIM"
+	"fmt"
+)
 
 // DefaultService 实现Service接口
 type DefaultService struct {
@@ -32,7 +18,7 @@ type DefaultService struct {
 }
 
 // NewEntry 新建条目
-func NewEntry(id, name, protocol string, address string, port int) ServiceRegistration {
+func NewEntry(id, name, protocol string, address string, port int) EIM.ServiceRegistration {
 	return &DefaultService{
 		Id:       id,
 		Name:     name,

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Update the basic layer." />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Update the &quot;protocol layer&quot; part of the basic layer.">
+      <change afterPath="$PROJECT_DIR$/container/clients.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container/container.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container/hash_selector.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container/selector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naming/naming.go" beforeDir="false" afterPath="$PROJECT_DIR$/naming/naming.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naming/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/naming/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,25 +57,6 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -89,6 +79,8 @@
       <workItem from="1676773686204" duration="3869000" />
       <workItem from="1676778888465" duration="598000" />
       <workItem from="1676779725777" duration="10860000" />
+      <workItem from="1676859307247" duration="6871000" />
+      <workItem from="1676965782721" duration="3773000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -153,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676807933935</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update the &quot;protocol layer&quot; part of the basic layer.">
+      <created>1676878511191</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676878511191</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +179,8 @@
     <MESSAGE value="Finish the &quot;Service Registration&quot;(&quot;naming&quot;) part; Import the &quot;logger&quot; part and the &quot;endian&quot; part&#10;1. create naming\service.go&#10;2. update naming\naming.go&#10;3. create logger\logger.go&#10;4. create logger\setting.go&#10;5. create wire\endian\big_endian_test.go&#10;6. update wire\endian\helper.go&#10;7. update \go.mod&#10;8. update \go.sum&#10;9. update \workspace.xml" />
     <MESSAGE value="Create the basic layer and update the mock" />
     <MESSAGE value="Update the basic layer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the basic layer." />
+    <MESSAGE value="Update the &quot;protocol layer&quot; part of the basic layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the &quot;protocol layer&quot; part of the basic layer." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

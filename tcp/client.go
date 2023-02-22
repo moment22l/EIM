@@ -29,10 +29,15 @@ type Client struct {
 	state   int32
 	once    sync.Once
 	options ClientOptions
+	Meta    map[string]string
 }
 
 // NewClient 创建新客户端
 func NewClient(id, name string, opts ClientOptions) EIM.Client {
+	return NewClientWithProps(id, name, make(map[string]string), opts)
+}
+
+func NewClientWithProps(id, name string, meta map[string]string, opts ClientOptions) EIM.Client {
 	if opts.WriteWait == 0 {
 		opts.WriteWait = EIM.DefaultWriteWait
 	}
@@ -43,6 +48,7 @@ func NewClient(id, name string, opts ClientOptions) EIM.Client {
 		id:      id,
 		name:    name,
 		options: opts,
+		Meta:    meta,
 	}
 	return cli
 }

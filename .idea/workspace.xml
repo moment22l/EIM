@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Create and finish the central registry.">
-      <change afterPath="$PROJECT_DIR$/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispatcher.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/location.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway/serv/dialer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway/serv/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/serv/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/pkt/protocol.pb.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Create the link layer and the command router, and update the basic layer.">
+      <change afterPath="$PROJECT_DIR$/wire/proto/rpc.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/rpc/rpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wire/token/jwt.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/proto/protocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/wire/proto/protocol.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +51,7 @@
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/82507/Desktop/分布式IM/kim-1.2&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
@@ -93,7 +89,9 @@
       <workItem from="1677064084187" duration="1572000" />
       <workItem from="1677136627134" duration="7884000" />
       <workItem from="1677392733244" duration="7858000" />
-      <workItem from="1677402445772" duration="1066000" />
+      <workItem from="1677402445772" duration="2746000" />
+      <workItem from="1677650913628" duration="34000" />
+      <workItem from="1677651154231" duration="1415000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -186,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677152055235</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Create the link layer and the command router, and update the basic layer.">
+      <created>1677404897892</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677404897892</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +222,8 @@
     <MESSAGE value="Create the container layer and adjust the position of interface-&quot;ServiceRegistration&quot;." />
     <MESSAGE value="Create the container layer." />
     <MESSAGE value="Create and finish the central registry." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create and finish the central registry." />
+    <MESSAGE value="Create the link layer and the command router, and update the basic layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create the link layer and the command router, and update the basic layer." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

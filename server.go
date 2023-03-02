@@ -41,12 +41,11 @@ type Server interface {
 	SetReadWait(time.Duration)          // 用于设置一个连接读超时等待时间
 	SetChannelMap(ChannelMap)           // 用于设置一个ChannelMap(连接管理器)
 
-	// Start 用于在内部实现网络端口的监听和接收连接，
-	// 并完成一个Channel的初始化过程。
+	// Start 用于在内部实现网络端口的监听和接收连接，并完成一个Channel的初始化过程。
 	Start() error
 	// Push 消息到指定的Channel中
-	// string channelID
-	// []byte 序列化之后的消息数据
+	// string: channelID
+	// []byte: 序列化之后的消息数据
 	Push(string, []byte) error
 	Shutdown(context.Context) error // 服务下线，关闭连接
 }
@@ -112,8 +111,7 @@ const (
 
 // Client 客户端接口
 type Client interface {
-	ID() string
-	Name() string
+	Service
 	Connect(string) error
 	SetDialer(Dialer)
 	Send([]byte) error

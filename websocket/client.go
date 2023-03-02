@@ -5,13 +5,14 @@ import (
 	"EIM/logger"
 	"errors"
 	"fmt"
-	"github.com/gobwas/ws"
-	"github.com/gobwas/ws/wsutil"
 	"net"
 	"net/url"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/gobwas/ws"
+	"github.com/gobwas/ws/wsutil"
 )
 
 // ClientOptions 超时参数
@@ -31,11 +32,16 @@ type Client struct {
 	conn    net.Conn
 	state   int32
 	options ClientOptions
-	dc      *EIM.DialerContext
+	Meta    map[string]string
 }
 
 // NewClient 创建一个新客户端
 func NewClient(id, name string, options ClientOptions) EIM.Client {
+	return NewClientWithProps(id, name, make(map[string]string), options)
+}
+
+// NewClientWithProps 新建一个带有meta的客户端
+func NewClientWithProps(id, name string, meta map[string]string, options ClientOptions) EIM.Client {
 	if options.ReadWait == 0 {
 		options.ReadWait = EIM.DefaultReadWait
 	}
@@ -46,6 +52,7 @@ func NewClient(id, name string, options ClientOptions) EIM.Client {
 		id:      id,
 		name:    name,
 		options: options,
+		Meta:    meta,
 	}
 	return cli
 }
@@ -88,19 +95,24 @@ func (c *Client) Connect(addr string) error {
 	return nil
 }
 
-// ID 返回id
-func (c *Client) ID() string {
+// ServiceID 返回id
+func (c *Client) ServiceID() string {
 	return c.id
 }
 
-// Name 返回name
-func (c *Client) Name() string {
+// ServiceName 返回name
+func (c *Client) ServiceName() string {
 	return c.name
 }
 
 // SetDialer 设置拨号器
 func (c *Client) SetDialer(dialer EIM.Dialer) {
 	c.Dialer = dialer
+}
+
+// GetMeta 获取meta
+func (c *Client) GetMeta() map[string]string {
+	return c.Meta
 }
 
 // Close 关闭连接

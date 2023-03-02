@@ -162,7 +162,7 @@ func shutdown() error {
 
 // ConnectToService 连接服务
 func ConnectToService(serviceName string) error {
-	clients := NewClients(10)
+	clients := NewClients()
 	c.srvClients[serviceName] = clients
 	// watch服务的新增
 	delay := time.Second * 10
@@ -254,7 +254,7 @@ func readLoop(cli EIM.Client) error {
 		"module": "container",
 		"func":   "readLoop",
 	})
-	log.Infof("readLoop started of %s %s", cli.ID(), cli.Name())
+	log.Infof("readLoop started of %s %s", cli.ServiceID(), cli.ServiceName())
 	for {
 		frame, err := cli.Read()
 		if err != nil {
@@ -331,7 +331,7 @@ func ForwardWithSelector(serviceName string, p *pkt.LoginPkt, selector Selector)
 	}
 	// 加一个tag到packet中
 	p.AddStringMeta(wire.MetaDestServer, c.Srv.ServiceID())
-	log.Debugf("forward message to %v with %s", cli.ID(), &p.Header)
+	log.Debugf("forward message to %v with %s", cli.ServiceID(), &p.Header)
 
 	return cli.Send(pkt.Marshal(p))
 }

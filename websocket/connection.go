@@ -2,8 +2,9 @@ package websocket
 
 import (
 	"EIM"
-	"github.com/gobwas/ws"
 	"net"
+
+	"github.com/gobwas/ws"
 )
 
 // Frame 对ws.Frame的二次包装并实现EIM.Frame

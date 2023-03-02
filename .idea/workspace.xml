@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Create the link layer and the command router, and update the basic layer.">
-      <change afterPath="$PROJECT_DIR$/wire/proto/rpc.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/rpc/rpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wire/token/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Perfect the basic layer.">
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcp/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcp/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/websocket/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/websocket/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/websocket/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
       <workItem from="1677392733244" duration="7858000" />
       <workItem from="1677402445772" duration="2746000" />
       <workItem from="1677650913628" duration="34000" />
-      <workItem from="1677651154231" duration="1415000" />
+      <workItem from="1677651154231" duration="4424000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677404897892</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Perfect the basic layer.">
+      <created>1677666746179</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677666746180</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +230,8 @@
     <MESSAGE value="Create the container layer." />
     <MESSAGE value="Create and finish the central registry." />
     <MESSAGE value="Create the link layer and the command router, and update the basic layer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create the link layer and the command router, and update the basic layer." />
+    <MESSAGE value="Perfect the basic layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Perfect the basic layer." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

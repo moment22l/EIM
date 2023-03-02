@@ -3,15 +3,15 @@ package websocket
 import (
 	"EIM"
 	"EIM/logger"
-	"EIM/naming"
 	"context"
 	"errors"
 	"fmt"
-	"github.com/gobwas/ws"
-	"github.com/segmentio/ksuid"
 	"net/http"
 	"sync"
 	"time"
+
+	"github.com/gobwas/ws"
+	"github.com/segmentio/ksuid"
 )
 
 // ServerOptions Server的超时参数
@@ -24,7 +24,7 @@ type ServerOptions struct {
 // Server websocket的Server实现
 type Server struct {
 	listen string
-	naming.ServiceRegistration
+	EIM.ServiceRegistration
 	EIM.MessageListener
 	EIM.StateListener
 	EIM.Acceptor
@@ -34,7 +34,7 @@ type Server struct {
 }
 
 // NewServer 创建一个新Server
-func NewServer(listen string, service naming.ServiceRegistration) EIM.Server {
+func NewServer(listen string, service EIM.ServiceRegistration) EIM.Server {
 	return &Server{
 		listen:              listen,
 		ServiceRegistration: service,

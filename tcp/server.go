@@ -3,7 +3,6 @@ package tcp
 import (
 	"EIM"
 	"EIM/logger"
-	"EIM/naming"
 	"context"
 	"errors"
 	"fmt"
@@ -23,7 +22,7 @@ type ServerOptions struct {
 // Server tcp的Server实现
 type Server struct {
 	listen string
-	naming.ServiceRegistration
+	EIM.ServiceRegistration
 	EIM.Acceptor
 	EIM.MessageListener
 	EIM.StateListener
@@ -34,7 +33,7 @@ type Server struct {
 }
 
 // NewServer 创建一个新服务端
-func NewServer(listen string, service naming.ServiceRegistration) EIM.Server {
+func NewServer(listen string, service EIM.ServiceRegistration) EIM.Server {
 	return &Server{
 		listen:              listen,
 		ServiceRegistration: service,

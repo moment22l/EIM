@@ -53,14 +53,19 @@ func NewClientWithProps(id, name string, meta map[string]string, opts ClientOpti
 	return cli
 }
 
-// ID 返回id
-func (c *Client) ID() string {
+// ServiceID 返回id
+func (c *Client) ServiceID() string {
 	return c.id
 }
 
-// Name 返回name
-func (c *Client) Name() string {
+// ServiceName 返回name
+func (c *Client) ServiceName() string {
 	return c.name
+}
+
+// GetMeta 返回meta
+func (c *Client) GetMeta() map[string]string {
+	return c.Meta
 }
 
 // Connect 客户端核心逻辑部分, 将客户端连接到对应服务端

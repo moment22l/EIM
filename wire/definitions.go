@@ -1,5 +1,7 @@
 package wire
 
+import "time"
+
 type Magic [4]byte
 
 var (
@@ -28,4 +30,45 @@ const (
 	SNTGateway = "tgateway"
 	SNLogin    = "login"
 	SNChat     = "chat"
+	SNService  = "service"
+)
+
+type ServiceID string
+
+type SessionID string
+
+// Command的类型
+const (
+	// login
+	CommandLoginSignIn  = "login.signin"
+	CommandLoginSignOut = "login.signout"
+
+	// chat
+	CommandChatUserTalk  = "chat.user.talk"
+	CommandChatGroupTalk = "chat.group.talk"
+	CommandChatTalkAck   = "chat.talk.ack"
+
+	// 离线
+	CommandOfflineIndex   = "chat.offline.index"
+	CommandOfflineContent = "chat.offline.content"
+
+	// 群管理
+	CommandGroupCreate  = "chat.group.create"
+	CommandGroupJoin    = "chat.group.join"
+	CommandGroupQuit    = "chat.group.quit"
+	CommandGroupMembers = "chat.group.members"
+	CommandGroupDetail  = "chat.group.detail"
+)
+
+const (
+	OfflineMessageExpiresIn = time.Hour * 24 * 30
+	OfflineSyncIndexCount   = 3000
+	OfflineMessageStoreDays = 30 //days
+)
+
+const (
+	MessageTypeText  = 1
+	MessageTypeImage = 2
+	MessageTypeVoice = 3
+	MessageTypeVideo = 4
 )

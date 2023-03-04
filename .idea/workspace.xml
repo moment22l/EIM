@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Perfect the basic layer.">
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcp/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcp/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/websocket/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/websocket/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/websocket/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/websocket/server.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Update the link layer and add some definitions in the basic layer.">
+      <change afterPath="$PROJECT_DIR$/services/gateway/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/redis_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/location.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +92,9 @@
       <workItem from="1677402445772" duration="2746000" />
       <workItem from="1677650913628" duration="34000" />
       <workItem from="1677651154231" duration="4424000" />
+      <workItem from="1677740739132" duration="3236000" />
+      <workItem from="1677824639774" duration="7539000" />
+      <workItem from="1677896962804" duration="5048000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -198,7 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677666746180</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Perfect the container layer and adjust the communication layer.">
+      <created>1677745014697</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1677745014697</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update the link layer and add some definitions in the basic layer.">
+      <created>1677832237120</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1677832237120</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +248,9 @@
     <MESSAGE value="Create and finish the central registry." />
     <MESSAGE value="Create the link layer and the command router, and update the basic layer." />
     <MESSAGE value="Perfect the basic layer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Perfect the basic layer." />
+    <MESSAGE value="Perfect the container layer and adjust the communication layer." />
+    <MESSAGE value="Update the link layer and add some definitions in the basic layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the link layer and add some definitions in the basic layer." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

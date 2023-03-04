@@ -9,8 +9,8 @@ import (
 	"strings"
 )
 
-// LoginPkt 逻辑协议消息包(网关对外的client消息结构)
-type LoginPkt struct {
+// LogicPkt 逻辑协议消息包(网关对外的client消息结构)
+type LogicPkt struct {
 	Header
 	Body []byte `json:"body,omitempty"`
 }
@@ -46,9 +46,9 @@ func WithDest(dest string) HeaderOption {
 	}
 }
 
-// New 根据command和options, new一个空白的LoginPkt
-func New(command string, options ...HeaderOption) *LoginPkt {
-	pkt := &LoginPkt{}
+// New 根据command和options, new一个空白的LogicPkt
+func New(command string, options ...HeaderOption) *LogicPkt {
+	pkt := &LogicPkt{}
 	pkt.Command = command
 
 	for _, option := range options {
@@ -57,9 +57,9 @@ func New(command string, options ...HeaderOption) *LoginPkt {
 	return pkt
 }
 
-// NewForm 根据一个Header创建一个LoginPkt
-func NewForm(h *Header) *LoginPkt {
-	pkt := &LoginPkt{}
+// NewForm 根据一个Header创建一个LogicPkt
+func NewForm(h *Header) *LogicPkt {
+	pkt := &LogicPkt{}
 	pkt.Header = Header{
 		Command:   h.Command,
 		ChannelId: h.ChannelId,
@@ -70,8 +70,8 @@ func NewForm(h *Header) *LoginPkt {
 	return pkt
 }
 
-// Decode 从r中读取若干字节到LoginPkt并解包
-func (p *LoginPkt) Decode(r io.Reader) error {
+// Decode 从r中读取若干字节到LogicPkt并解包
+func (p *LogicPkt) Decode(r io.Reader) error {
 	// 读取Header
 	headerBytes, err := endian.ReadBytes(r)
 	if err != nil {
@@ -89,7 +89,7 @@ func (p *LoginPkt) Decode(r io.Reader) error {
 }
 
 // Encode 封包并将p写入w
-func (p *LoginPkt) Encode(w io.Writer) error {
+func (p *LogicPkt) Encode(w io.Writer) error {
 	headerBytes, err := proto.Marshal(&p.Header)
 	if err != nil {
 		return err
@@ -104,12 +104,12 @@ func (p *LoginPkt) Encode(w io.Writer) error {
 }
 
 // ReadBody 读取p中的body
-func (p *LoginPkt) ReadBody(val proto.Message) error {
+func (p *LogicPkt) ReadBody(val proto.Message) error {
 	return proto.Unmarshal(p.Body, val)
 }
 
 // WriteBody 将val序列化后写入到p的Body中
-func (p *LoginPkt) WriteBody(val proto.Message) *LoginPkt {
+func (p *LogicPkt) WriteBody(val proto.Message) *LogicPkt {
 	if val == nil {
 		return p
 	}
@@ -118,12 +118,12 @@ func (p *LoginPkt) WriteBody(val proto.Message) *LoginPkt {
 }
 
 // StringBody 返回string形式的body
-func (p *LoginPkt) StringBody() string {
+func (p *LogicPkt) StringBody() string {
 	return string(p.Body)
 }
 
 // String 返回string形式的p
-func (p *LoginPkt) String() string {
+func (p *LogicPkt) String() string {
 	return fmt.Sprintf("header:%v body:%dbits", &p.Header, len(p.Body))
 }
 
@@ -137,12 +137,12 @@ func (x *Header) ServiceName() string {
 }
 
 // AddMeta 向p中的Meta数组中添加元素
-func (p *LoginPkt) AddMeta(meta ...*Meta) {
+func (p *LogicPkt) AddMeta(meta ...*Meta) {
 	p.Meta = append(p.Meta, meta...)
 }
 
 // AddStringMeta 向p中的Meta数组中添加string形式的元素
-func (p *LoginPkt) AddStringMeta(key, value string) {
+func (p *LogicPkt) AddStringMeta(key, value string) {
 	p.AddMeta(&Meta{
 		Key:   key,
 		Value: value,
@@ -169,12 +169,12 @@ func FindMeta(meta []*Meta, key string) (interface{}, bool) {
 }
 
 // GetMeta 从p的Meta数组中找到key所对应的值
-func (p *LoginPkt) GetMeta(key string) (interface{}, bool) {
+func (p *LogicPkt) GetMeta(key string) (interface{}, bool) {
 	return FindMeta(p.Meta, key)
 }
 
 // DelMeta 删除p的Meta数组中key所对应的元素
-func (p *LoginPkt) DelMeta(key string) {
+func (p *LogicPkt) DelMeta(key string) {
 	for i, m := range p.Meta {
 		if m.Key == key {
 			length := len(p.Meta)

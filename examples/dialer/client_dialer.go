@@ -49,7 +49,7 @@ func (d *ClientDialer) DialAndHandshake(ctx EIM.DialerContext) (net.Conn, error)
 	if err != nil {
 		return nil, err
 	}
-	ack, err := pkt.MustReadLoginPkt(bytes.NewBuffer(frame.Payload))
+	ack, err := pkt.MustReadLogicPkt(bytes.NewBuffer(frame.Payload))
 	if err != nil {
 		return nil, err
 	}

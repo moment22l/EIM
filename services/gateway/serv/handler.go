@@ -37,7 +37,7 @@ func (h *Handler) Accept(conn EIM.Conn, timeout time.Duration) (string, error) {
 		return "", err
 	}
 	buf := bytes.NewBuffer(frame.GetPayload())
-	req, err := pkt.MustReadLoginPkt(buf)
+	req, err := pkt.MustReadLogicPkt(buf)
 	if err != nil {
 		return "", err
 	}
@@ -100,15 +100,15 @@ func (h *Handler) Receive(ag EIM.Agent, payload []byte) {
 		return
 	}
 
-	if loginPkt, ok := packet.(*pkt.LoginPkt); ok {
-		loginPkt.ChannelId = ag.ID()
-		err = container.Forward(loginPkt.ServiceName(), loginPkt)
+	if LogicPkt, ok := packet.(*pkt.LogicPkt); ok {
+		LogicPkt.ChannelId = ag.ID()
+		err = container.Forward(LogicPkt.ServiceName(), LogicPkt)
 		if err != nil {
 			logger.WithFields(logger.Fields{
 				"module": "handler",
 				"id":     ag.ID(),
-				"cmd":    loginPkt.Command,
-				"dest":   loginPkt.Dest,
+				"cmd":    LogicPkt.Command,
+				"dest":   LogicPkt.Dest,
 			}).Error(err)
 		}
 	}

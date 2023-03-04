@@ -48,7 +48,7 @@ func NewRouter() *Router {
 	return r
 }
 
-func (r *Router) Serve(packet *pkt.LoginPkt, dispatcher Dispatcher, cache SessionStorage, session Session) error {
+func (r *Router) Serve(packet *pkt.LogicPkt, dispatcher Dispatcher, cache SessionStorage, session Session) error {
 	if dispatcher == nil {
 		return fmt.Errorf("dispatcher is nil")
 	}

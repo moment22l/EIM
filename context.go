@@ -41,7 +41,7 @@ type ContextImpl struct {
 
 	handlers HandlerChain
 	index    int
-	request  *pkt.LoginPkt
+	request  *pkt.LogicPkt
 	session  Session
 }
 

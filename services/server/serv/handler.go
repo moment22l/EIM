@@ -53,7 +53,7 @@ func (h *ServHandler) Accept(conn EIM.Conn, timeout time.Duration) (string, erro
 // Receive 接收网关发送过来的消息
 func (h *ServHandler) Receive(ag EIM.Agent, payload []byte) {
 	buf := bytes.NewBuffer(payload)
-	packet, err := pkt.MustReadLoginPkt(buf)
+	packet, err := pkt.MustReadLogicPkt(buf)
 	if err != nil {
 		return
 	}
@@ -83,7 +83,7 @@ func (h *ServHandler) Receive(ag EIM.Agent, payload []byte) {
 }
 
 // RespErr 将错误信息推送会客户端
-func RespErr(ag EIM.Agent, p *pkt.LoginPkt, status pkt.Status) error {
+func RespErr(ag EIM.Agent, p *pkt.LogicPkt, status pkt.Status) error {
 	packet := pkt.NewForm(&p.Header)
 	packet.Status = status
 	packet.Flag = pkt.Flag_Response
@@ -101,7 +101,7 @@ func (h *ServHandler) Disconnect(id string) error {
 type ServerDispatcher struct{}
 
 // Push 推送消息
-func (s *ServerDispatcher) Push(gateway string, channels []string, pkt *pkt.LoginPkt) error {
+func (s *ServerDispatcher) Push(gateway string, channels []string, pkt *pkt.LogicPkt) error {
 	pkt.AddStringMeta(wire.MetaDestChannels, strings.Join(channels, ","))
 	return container.Push(gateway, pkt)
 }

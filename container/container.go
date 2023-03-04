@@ -265,7 +265,7 @@ func readLoop(cli EIM.Client) error {
 		}
 		buf := bytes.NewBuffer(frame.GetPayload())
 
-		p, err := pkt.MustReadLoginPkt(buf)
+		p, err := pkt.MustReadLogicPkt(buf)
 		if err != nil {
 			log.Info(err)
 			continue
@@ -278,13 +278,13 @@ func readLoop(cli EIM.Client) error {
 }
 
 // Push 供上层业务调用, 用于将消息发送给网关
-func Push(server string, p *pkt.LoginPkt) error {
+func Push(server string, p *pkt.LogicPkt) error {
 	p.AddStringMeta(wire.MetaDestServer, server)
 	return c.Srv.Push(server, pkt.Marshal(p))
 }
 
 // PushMessage 将从Client中收到的消息通过Server找到对应channel并发送到客户端
-func PushMessage(p *pkt.LoginPkt) error {
+func PushMessage(p *pkt.LogicPkt) error {
 	server, _ := p.GetMeta(wire.MetaDestServer)
 	if server != c.Srv.ServiceID() {
 		return fmt.Errorf("dest_server is incorrect, %s != %s", server, c.Srv.ServiceID())
@@ -310,7 +310,7 @@ func PushMessage(p *pkt.LoginPkt) error {
 }
 
 // Forward 消息上行, 下游服务发送消息到上游服务
-func Forward(serviceName string, p *pkt.LoginPkt) error {
+func Forward(serviceName string, p *pkt.LogicPkt) error {
 	if p == nil {
 		return errors.New("packet is nil")
 	}
@@ -324,7 +324,7 @@ func Forward(serviceName string, p *pkt.LoginPkt) error {
 }
 
 // ForwardWithSelector 可以指定一个Selector来推送消息到服务的指定节点
-func ForwardWithSelector(serviceName string, p *pkt.LoginPkt, selector Selector) error {
+func ForwardWithSelector(serviceName string, p *pkt.LogicPkt, selector Selector) error {
 	cli, err := lookup(serviceName, &p.Header, selector)
 	if err != nil {
 		return err

@@ -23,8 +23,8 @@ func Read(r io.Reader) (interface{}, error) {
 		return nil, err
 	}
 	switch magic {
-	case wire.MagicLoginPkt:
-		p := new(LoginPkt)
+	case wire.MagicLogicPkt:
+		p := new(LogicPkt)
 		if err := p.Decode(r); err != nil {
 			return nil, err
 		}
@@ -40,13 +40,13 @@ func Read(r io.Reader) (interface{}, error) {
 	}
 }
 
-// MustReadLoginPkt 必须读取一个LoginPkt, 否则返回错误信息
-func MustReadLoginPkt(r io.Reader) (*LoginPkt, error) {
+// MustReadLogicPkt 必须读取一个LogicPkt, 否则返回错误信息
+func MustReadLogicPkt(r io.Reader) (*LogicPkt, error) {
 	val, err := Read(r)
 	if err != nil {
 		return nil, err
 	}
-	if lp, ok := val.(*LoginPkt); ok {
+	if lp, ok := val.(*LogicPkt); ok {
 		return lp, nil
 	}
 	return nil, fmt.Errorf("this packet is not a Login packet")
@@ -69,8 +69,8 @@ func Marshal(p Packet) []byte {
 	buf := new(bytes.Buffer)
 	kind := reflect.TypeOf(p).Elem()
 
-	if kind.AssignableTo(reflect.TypeOf(LoginPkt{})) {
-		_, _ = buf.Write(wire.MagicLoginPkt[:])
+	if kind.AssignableTo(reflect.TypeOf(LogicPkt{})) {
+		_, _ = buf.Write(wire.MagicLogicPkt[:])
 	} else if kind.AssignableTo(reflect.TypeOf(BasicPkt{})) {
 		_, _ = buf.Write(wire.MagicBasicPkt[:])
 	}

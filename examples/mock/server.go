@@ -48,6 +48,7 @@ func (h *ServerHandler) Accept(conn EIM.Conn, timeout time.Duration) (string, er
 	if err != nil {
 		return "", err
 	}
+	logger.Info("recv", frame.GetOpCode())
 	// 2. 解析数据包内容
 	userID := string(frame.GetPayload())
 	// 3. 鉴权, 这里做了一个假的验证

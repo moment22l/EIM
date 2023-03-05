@@ -60,7 +60,7 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 			continue
 		}
 		recv++
-		logger.Warnf("%s receive message [%s]", cli.ID(), frame.GetPayload())
+		logger.Warnf("%s receive message [%s]", cli.ServiceID(), frame.GetPayload())
 		if recv == count {
 			break
 		}
@@ -84,21 +84,20 @@ func (c *ClientHandler) Disconnect(id string) error {
 
 // WebsocketDialer 实现Dialer接口, websocket拨号器
 type WebsocketDialer struct {
-	userID string
 }
 
 func (d *WebsocketDialer) DialAndHandshake(ctx EIM.DialerContext) (net.Conn, error) {
-	// 1. 调用ws.Dial拨号
+	// 调用ws.Dial拨号
 	conn, _, _, err := ws.Dial(context.TODO(), ctx.Address)
 	if err != nil {
 		return nil, err
 	}
-	// 2. 发送用户认证消息, 实例是userId
+	// 发送用户认证消息, 实例是userId
 	err = wsutil.WriteClientBinary(conn, []byte(ctx.Id))
 	if err != nil {
 		return nil, err
 	}
-	// 3. 返回conn
+	// 返回conn
 	return conn, nil
 }
 
@@ -106,21 +105,20 @@ func (d *WebsocketDialer) DialAndHandshake(ctx EIM.DialerContext) (net.Conn, err
 
 // TCPDialer 实现Dialer接口, TCP拨号器
 type TCPDialer struct {
-	userID string
 }
 
 func (d *TCPDialer) DialAndHandshake(ctx EIM.DialerContext) (net.Conn, error) {
 	logger.Info("start dial: ", ctx.Address)
-	// 1. 调用net.Dial拨号
+	// 调用net.Dial拨号
 	conn, err := net.DialTimeout("tcp", ctx.Address, ctx.Timeout)
 	if err != nil {
 		return nil, err
 	}
-	// 2. 发送用户认证消息, 实例是userId
+	// 发送用户认证消息, 实例是userId
 	err = tcp.WriteFrame(conn, EIM.OpBinary, []byte(ctx.Id))
 	if err != nil {
 		return nil, err
 	}
-	// 3. 返回conn
+	// 返回conn
 	return conn, nil
 }

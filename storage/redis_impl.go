@@ -19,6 +19,12 @@ type RedisStorage struct {
 	cli *redis.Client
 }
 
+func NewRedisStorage(cli *redis.Client) EIM.SessionStorage {
+	return &RedisStorage{
+		cli: cli,
+	}
+}
+
 // Add 将会话添加进redis缓存
 func (r *RedisStorage) Add(session *pkt.Session) error {
 	ctx := context.Background()

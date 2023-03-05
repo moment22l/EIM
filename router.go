@@ -48,6 +48,11 @@ func NewRouter() *Router {
 	return r
 }
 
+// Handle 注册一个指令处理器
+func (r *Router) Handle(command string, handlers ...HandlerFun) {
+	r.handlers.Add(command, handlers...)
+}
+
 func (r *Router) Serve(packet *pkt.LogicPkt, dispatcher Dispatcher, cache SessionStorage, session Session) error {
 	if dispatcher == nil {
 		return fmt.Errorf("dispatcher is nil")

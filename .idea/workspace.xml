@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Correct the spelling of &quot;logic&quot;(Error spelling into &quot;Login&quot;).">
-      <change afterPath="$PROJECT_DIR$/services/gateway/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway/conf/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/conf/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/server.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="Finish the &quot;config&quot; part and the server of gateway and logic service.">
+      <change afterPath="$PROJECT_DIR$/examples/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/mock/cmd.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/router/server.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storage/redis_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/mock/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mock/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +120,9 @@
       <workItem from="1677740739132" duration="3236000" />
       <workItem from="1677824639774" duration="7539000" />
       <workItem from="1677896962804" duration="9881000" />
-      <workItem from="1677984850840" duration="5892000" />
+      <workItem from="1677984850840" duration="8448000" />
+      <workItem from="1678069380508" duration="6622000" />
+      <workItem from="1678157294950" duration="2165000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -253,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677918144959</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Finish the &quot;config&quot; part and the server of gateway and logic service.">
+      <created>1678004123579</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678004123579</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +301,8 @@
     <MESSAGE value="Update the link layer and add some definitions in the basic layer." />
     <MESSAGE value="Complete the definition of &quot;location&quot;, the implementation of &quot;redis&quot; and the &quot;ClientDialer&quot;." />
     <MESSAGE value="Correct the spelling of &quot;logic&quot;(Error spelling into &quot;Login&quot;)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct the spelling of &quot;logic&quot;(Error spelling into &quot;Login&quot;)." />
+    <MESSAGE value="Finish the &quot;config&quot; part and the server of gateway and logic service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish the &quot;config&quot; part and the server of gateway and logic service." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

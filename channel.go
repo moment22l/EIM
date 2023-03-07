@@ -101,7 +101,7 @@ func (ch *ChannelImpl) SetWriteWait(writewait time.Duration) {
 	if writewait == 0 {
 		return
 	}
-	ch.SetWriteWait(writewait)
+	ch.writewait = writewait
 }
 
 // SetReadWait 设置读超时
@@ -109,7 +109,7 @@ func (ch *ChannelImpl) SetReadWait(readwait time.Duration) {
 	if readwait == 0 {
 		return
 	}
-	ch.SetReadWait(readwait)
+	ch.readwait = readwait
 }
 
 // WriteFrame 重写Conn的WriteFrame方法(增加了重置写超时的逻辑)

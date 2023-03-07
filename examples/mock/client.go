@@ -29,13 +29,13 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 	}
 
 	// 2. 建立连接
-	err := cli.Connect(userID)
+	err := cli.Connect(addr)
 	if err != nil {
 		logger.Error(err)
 	}
 
 	// 3. 发送消息然后退出
-	count := 10
+	count := 5
 	go func() {
 		for i := 0; i < count; i++ {
 			err := cli.Send([]byte("hello"))
@@ -43,7 +43,7 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 				logger.Error(err)
 				return
 			}
-			time.Sleep(time.Second)
+			time.Sleep(time.Millisecond * 5)
 		}
 	}()
 
@@ -56,7 +56,7 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 			break
 		}
 		// 检查frame的OpCode
-		if frame.GetOpCode() == EIM.OpBinary {
+		if frame.GetOpCode() != EIM.OpBinary {
 			continue
 		}
 		recv++

@@ -14,6 +14,8 @@ import (
 	"EIM/wire"
 	"context"
 	"time"
+
+	"github.com/spf13/cobra"
 )
 
 type ServerStartOptions struct {
@@ -74,4 +76,19 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	container.SetServiceNaming(ns)
 	// 启动container
 	return container.Start()
+}
+
+func NewServerStartCmd(ctx context.Context, version string) *cobra.Command {
+	opts := &ServerStartOptions{}
+
+	cmd := &cobra.Command{
+		Use:   "server",
+		Short: "start a server",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return RunServerStart(ctx, opts, version)
+		},
+	}
+	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "./server/conf.yaml", "Config file")
+	cmd.PersistentFlags().StringVarP(&opts.serviceName, "serviceName", "s", "chat", "defined a service name(login or chat)")
+	return cmd
 }

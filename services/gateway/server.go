@@ -12,6 +12,8 @@ import (
 	"EIM/wire"
 	"context"
 	"time"
+
+	"github.com/spf13/cobra"
 )
 
 type ServerStartOptions struct {
@@ -64,4 +66,19 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	container.SetDialer(serv.NewDialer(config.ServiceID))
 	// 启动容器
 	return container.Start()
+}
+
+func NewServerStartCmd(ctx context.Context, version string) *cobra.Command {
+	opts := &ServerStartOptions{}
+
+	cmd := &cobra.Command{
+		Use:   "gateway",
+		Short: "start a gateway",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return RunServerStart(ctx, opts, version)
+		},
+	}
+	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "./gateway/config.yaml", "Config file")
+	cmd.PersistentFlags().StringVarP(&opts.protocol, "protocol", "p", "ws", "protocol of ws or tcp")
+	return cmd
 }

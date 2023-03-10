@@ -3,9 +3,10 @@ package mock
 import (
 	"context"
 	"fmt"
+	"strings"
+
 	"github.com/segmentio/ksuid"
 	"github.com/spf13/cobra"
-	"strings"
 )
 
 type StartOptions struct {

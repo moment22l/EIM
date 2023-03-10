@@ -3,8 +3,9 @@ package EIM
 import (
 	"EIM/logger"
 	"EIM/wire/pkt"
-	"google.golang.org/protobuf/proto"
 	"sync"
+
+	"google.golang.org/protobuf/proto"
 )
 
 // Session 会话

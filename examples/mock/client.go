@@ -6,10 +6,11 @@ import (
 	"EIM/tcp"
 	"EIM/websocket"
 	"context"
-	"github.com/gobwas/ws"
-	"github.com/gobwas/ws/wsutil"
 	"net"
 	"time"
+
+	"github.com/gobwas/ws"
+	"github.com/gobwas/ws/wsutil"
 )
 
 // ClientDemo 实现了Client接口
@@ -38,12 +39,14 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 	count := 5
 	go func() {
 		for i := 0; i < count; i++ {
-			err := cli.Send([]byte("hello"))
+			message := []byte("hello")
+			err := cli.Send(message)
 			if err != nil {
 				logger.Error(err)
 				return
 			}
-			time.Sleep(time.Millisecond * 5)
+			logger.Printf("%s send message [%s]", cli.ServiceID(), message)
+			time.Sleep(time.Second)
 		}
 	}()
 

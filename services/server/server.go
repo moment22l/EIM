@@ -9,6 +9,7 @@ import (
 	"EIM/services/server/conf"
 	"EIM/services/server/handler"
 	"EIM/services/server/serv"
+	"EIM/services/server/service"
 	"EIM/storage"
 	"EIM/tcp"
 	"EIM/wire"
@@ -32,14 +33,21 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	}
 	// 初始化logger
 	_ = logger.Init(logger.Settings{
-		Level: "trace",
+		Level:    config.LogLevel,
+		Filename: "./data/server.log",
 	})
+	var groupService service.Group
+	var messageService service.Message
 	// 初始化Router
 	r := EIM.NewRouter()
 	// login
 	loginHandler := handler.NewLoginHandler()
 	r.Handle(wire.CommandLoginSignIn, loginHandler.DoSysLogin)
 	r.Handle(wire.CommandLoginSignOut, loginHandler.DoSysLogout)
+	// talk
+	chatHandler := handler.NewChatHandler(messageService, groupService)
+	r.Handle(wire.CommandChatUserTalk, chatHandler.DoUserTalk)
+	r.Handle(wire.CommandChatGroupTalk, chatHandler.DoGroupTalk)
 	// 初始化redis
 	redis, err := conf.InitRedis(config.RedisAddr, "")
 	if err != nil {

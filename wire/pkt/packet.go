@@ -3,10 +3,11 @@ package pkt
 import (
 	"EIM/wire/endian"
 	"fmt"
-	"google.golang.org/protobuf/proto"
 	"io"
 	"strconv"
 	"strings"
+
+	"google.golang.org/protobuf/proto"
 )
 
 // LogicPkt 逻辑协议消息包(网关对外的client消息结构)

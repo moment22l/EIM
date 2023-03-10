@@ -32,14 +32,14 @@ message Session {
 
 // chat message
 message MessageReq {
-  int32 type = 1;
-  string body = 2;
-  string extra = 3;
+  int32 type = 1;   // 消息类型
+  string body = 2;  // 消息内容
+  string extra = 3; // 消息额外信息
 }
 
 message MessageResp {
-  int64 messageId = 1;
-  int64 sendTime = 2;
+  int64 messageId = 1;  // 消息id
+  int64 sendTime = 2;   // 发送的时间
 }
 
 message MessagePush {
@@ -47,7 +47,7 @@ message MessagePush {
   int32 type = 2;
   string body = 3;
   string extra = 4;
-  string sender = 5;
+  string sender = 5;  // 消息发送者
   int64 sendTime = 6;
 }
 

@@ -3,6 +3,7 @@ package conf
 import (
 	"EIM/logger"
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
 	"time"
@@ -13,15 +14,19 @@ import (
 )
 
 type Config struct {
-	ServiceID     string   `envconfig:"serviceId"`
-	Namespace     string   `envconfig:"namespace"`
-	Listen        string   `envconfig:"listen"`
-	PublicAddress string   `envconfig:"publicAddress"`
-	PublicPort    int      `envconfig:"publicPort"`
-	Tags          []string `envconfig:"tags"`
-	ConsulURL     string   `envconfig:"consulURL"`
-	RedisAddr     string   `envconfig:"redisAddr"`
-	RpcURL        string   `envconfig:"rpcURL"`
+	ServiceID       string
+	Listen          string `default:":8005"`
+	MonitorPort     int    `default:"8006"`
+	PublicAddress   string
+	PublicPort      int `default:"8005"`
+	Tags            []string
+	Zone            string `default:"zone_ali_03"`
+	ConsulURL       string
+	RedisAddrs      string
+	RoyalURL        string
+	LogLevel        string `default:"DEBUG"`
+	MessageGPool    int    `default:"5000"`
+	ConnectionGPool int    `default:"500"`
 }
 
 // Init 初始化配置
@@ -65,4 +70,9 @@ func InitRedis(addr string, password string) (*redis.Client, error) {
 		return nil, err
 	}
 	return redisDB, nil
+}
+
+func (c Config) String() string {
+	bts, _ := json.Marshal(c)
+	return string(bts)
 }

@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="feat: finish the `chatHandler`(include `UserTalk` and `GroupTalk`)">
-      <change afterPath="$PROJECT_DIR$/services/server/handler/chat_handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/service/group.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/server/service/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/server/handler/group_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/server/handler/offline_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service/handler/message_handler.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storage/redis_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mock/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mock/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mock/cmd.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mock/cmd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/server/conf/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/conf/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcp/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/pkt/packet.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire/pkt/packet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/proto/protocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/wire/proto/protocol.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire/token/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire/token/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/service/group.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/service/group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/service/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/service/message.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,25 +66,6 @@
       <recent name="F:\EIM\wire\pkt" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -128,7 +104,10 @@
       <workItem from="1678069380508" duration="6622000" />
       <workItem from="1678157294950" duration="4180000" />
       <workItem from="1678255638413" duration="3214000" />
-      <workItem from="1678429408436" duration="5541000" />
+      <workItem from="1678429408436" duration="5850000" />
+      <workItem from="1678674955301" duration="2697000" />
+      <workItem from="1678859909311" duration="7224000" />
+      <workItem from="1678875325035" duration="733000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -277,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678161062188</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: finish the `chatHandler`(include `UserTalk` and `GroupTalk`)">
+      <created>1678438686496</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678438686496</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

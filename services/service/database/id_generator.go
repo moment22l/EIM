@@ -1,4 +1,4 @@
-package datebase
+package database
 
 import "github.com/bwmarrin/snowflake"
 

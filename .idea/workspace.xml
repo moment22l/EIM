@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="feat: finish `group_handler` and `offline_handler` of services server&#10;fix: perfect context.go and modify config of services server">
-      <change afterPath="$PROJECT_DIR$/services/service/datebase/id_generator.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/datebase/model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/datebase/mysql.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/datebase/redis.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="feat: finish the model and config of mysql and redis">
+      <change afterPath="$PROJECT_DIR$/services/service/conf.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service/conf/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service/database/DB_table_structure.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/services/service/handler/message_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/datebase/id_generator.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/database/id_generator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/datebase/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/database/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/datebase/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/database/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/datebase/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/database/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire/definitions.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire/definitions.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,25 +66,6 @@
       <recent name="F:\EIM\wire\pkt" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="EIM" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -124,7 +108,8 @@
       <workItem from="1678674955301" duration="2697000" />
       <workItem from="1678859909311" duration="7224000" />
       <workItem from="1678875325035" duration="6664000" />
-      <workItem from="1678944368440" duration="6660000" />
+      <workItem from="1678944368440" duration="8198000" />
+      <workItem from="1679206203073" duration="5551000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -287,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678878473913</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat: finish the model and config of mysql and redis">
+      <created>1678957836567</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678957836567</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +321,8 @@
     <MESSAGE value="feat: allow to use the CLI of service and mock to run server and client&#10;fix: prevent recursive blocking of the function `SetWriteWait` and `SetReadWait` of `ChannelImpl`" />
     <MESSAGE value="feat: finish the `chatHandler`(include `UserTalk` and `GroupTalk`)" />
     <MESSAGE value="feat: finish `group_handler` and `offline_handler` of services server&#10;fix: perfect context.go and modify config of services server" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: finish `group_handler` and `offline_handler` of services server&#10;fix: perfect context.go and modify config of services server" />
+    <MESSAGE value="feat: finish the model and config of mysql and redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: finish the model and config of mysql and redis" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

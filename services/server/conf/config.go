@@ -1,11 +1,13 @@
 package conf
 
 import (
+	"EIM"
 	"EIM/logger"
 	"context"
 	"encoding/json"
 	"fmt"
 	"log"
+	"strings"
 	"time"
 
 	"github.com/go-redis/redis/v8"
@@ -35,22 +37,28 @@ func Init(file string) (*Config, error) {
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("/etc/conf")
 
-	err := viper.ReadInConfig()
-	if err != nil {
-		return nil, fmt.Errorf("config file not found: %w", err)
-	}
-
 	var config Config
-	err = viper.Unmarshal(&config)
-	if err != nil {
-		return nil, err
-	}
-	err = envconfig.Process("", &config)
+	err := envconfig.Process("kim", &config)
 	if err != nil {
 		return nil, err
 	}
 
-	logger.Info(err)
+	if err := viper.ReadInConfig(); err != nil {
+		logger.Warn(err)
+	} else {
+		if err := viper.Unmarshal(&config); err != nil {
+			return nil, err
+		}
+	}
+
+	if config.ServiceID == "" {
+		localIP := EIM.GetLocalIP()
+		config.ServiceID = fmt.Sprintf("server_%s", strings.ReplaceAll(localIP, ".", ""))
+	}
+	if config.PublicAddress == "" {
+		config.PublicAddress = EIM.GetLocalIP()
+	}
+	logger.Info(config)
 	return &config, nil
 }
 

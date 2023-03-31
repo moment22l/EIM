@@ -82,7 +82,7 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	}
 	err = ns.Register(&naming.DefaultService{
 		Id:       config.ServiceID,
-		Name:     wire.SNChat,
+		Name:     wire.SNService,
 		Address:  config.PublicAddress,
 		Port:     config.PublicPort,
 		Protocol: "http",

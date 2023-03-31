@@ -61,8 +61,8 @@ func (n *Naming) Register(service EIM.ServiceRegistration) error {
 	reg.Meta[KeyProtocol] = service.GetProtocol()
 
 	// 健康检查
-	healthURL := reg.Meta[KeyHealthURL]
-	if healthURL == "" {
+	healthURL := service.GetMeta()[KeyHealthURL]
+	if healthURL != "" {
 		check := new(api.AgentServiceCheck)
 		check.CheckID = fmt.Sprintf("%s_normal", service.ServiceID())
 		check.HTTP = healthURL

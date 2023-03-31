@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="feat: finish message storage and offline synchronization&#10;fix: correct spelling of word &quot;database&quot;">
-      <change afterPath="$PROJECT_DIR$/net.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/conf/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service/server.go" afterDir="false" />
+    <list default="true" id="aca6ffd2-c584-453b-8d0b-edd5511843c5" name="变更" comment="feat: finish the part of `Group Management`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service/handler/group_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/handler/group_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naming/consul/naming.go" beforeDir="false" afterPath="$PROJECT_DIR$/naming/consul/naming.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/server/conf/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/server/conf/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/service/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,10 @@
       <workItem from="1679206203073" duration="6495000" />
       <workItem from="1679279542122" duration="999000" />
       <workItem from="1679467702581" duration="1819000" />
-      <workItem from="1679551810073" duration="5637000" />
+      <workItem from="1679551810073" duration="7947000" />
+      <workItem from="1679903173886" duration="16000" />
+      <workItem from="1680269634882" duration="5178000" />
+      <workItem from="1680275003462" duration="2311000" />
     </task>
     <task id="LOCAL-00001" summary="Finish foundation of communication layer&#10;1. create \server.go&#10;2. create examples\mock\server.go&#10;3. create examples\mock\client.go&#10;4. create tcp\connection.go&#10;5. create wire\endian\helper.go">
       <created>1673697393531</created>
@@ -304,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679221084837</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feat: finish the part of `Group Management`">
+      <created>1679559138802</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1679559138802</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +333,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finish the &quot;websocket&quot; part of communication layer&#10;1. create \channel.go&#10;2. create websocket\connection.go&#10;3. create websocket\server.go&#10;4. create websocket\client.go&#10;5. update \server.go" />
     <MESSAGE value="Finish the &quot;tcp&quot; part of communication layer&#10;1. create tcp\server.go&#10;2. create tcp\client.go&#10;3. update tcp\connection.go" />
     <MESSAGE value="Perfect the &quot;websocket&quot; part of communication layer&#10;1. update websocket\server.go&#10;2. update websocket\client.go&#10;3. update websocket\connection.go" />
     <MESSAGE value="Perfect the &quot;tcp&quot; and &quot;websocket&quot; part of communication layer&#10;1. update tcp\server.go&#10;2. update tcp\client.go&#10;3. update websocket\server.go&#10;4. update websocket\client.go" />
@@ -347,7 +357,8 @@
     <MESSAGE value="feat: finish `group_handler` and `offline_handler` of services server&#10;fix: perfect context.go and modify config of services server" />
     <MESSAGE value="feat: finish the model and config of mysql and redis" />
     <MESSAGE value="feat: finish message storage and offline synchronization&#10;fix: correct spelling of word &quot;database&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: finish message storage and offline synchronization&#10;fix: correct spelling of word &quot;database&quot;" />
+    <MESSAGE value="feat: finish the part of `Group Management`" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: finish the part of `Group Management`" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
